@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'PannablePickerView_Example', :exclusive => true do
+  pod "PannablePickerView", :path => "../"
+end
+
+target 'PannablePickerView_Tests', :exclusive => true do
+  pod "PannablePickerView", :path => "../"
+
+  
+end
