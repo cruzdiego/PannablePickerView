@@ -1,0 +1,14 @@
+PODS:
+  - PannablePickerView (0.1.0)
+
+DEPENDENCIES:
+  - PannablePickerView (from `../`)
+
+EXTERNAL SOURCES:
+  PannablePickerView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PannablePickerView: 62cae6293efb5d41eff9fd93d38870303434570d
+
+COCOAPODS: 0.39.0
