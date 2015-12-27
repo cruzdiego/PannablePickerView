@@ -37,7 +37,6 @@ pod "PannablePickerView"
 1. Create an instance of it and add it to a view.
 2. You can either asign a frame to it or create NSLayoutConstraints.
 3. Add a selector for its .ValueChanged control event.
-- 
 
 ##Properties
 
