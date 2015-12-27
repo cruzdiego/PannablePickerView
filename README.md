@@ -134,6 +134,7 @@ Triggered when users has ended interacting with the control
 
 ##Requirements
 
+- iOS 8.2 or later
 - Xcode 7.1 or later (Uses Swift 2.1 syntax)
 - Autolayout should be enabled on Storyboard
 
