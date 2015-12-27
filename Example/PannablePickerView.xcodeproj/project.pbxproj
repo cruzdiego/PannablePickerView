@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		082E052A1C2F453F00F90196 /* InsideTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082E05291C2F453F00F90196 /* InsideTableViewViewController.swift */; };
+		082E052C1C2F4B0600F90196 /* AsAnInputViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082E052B1C2F4B0600F90196 /* AsAnInputViewTableViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -28,12 +29,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		082E05291C2F453F00F90196 /* InsideTableViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideTableViewViewController.swift; sourceTree = "<group>"; };
+		082E052B1C2F4B0600F90196 /* AsAnInputViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsAnInputViewTableViewController.swift; sourceTree = "<group>"; };
 		3998A39FBF705C014825D0E6 /* Pods-PannablePickerView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PannablePickerView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PannablePickerView_Tests/Pods-PannablePickerView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		41FE6AC4060599578B476C7E /* PannablePickerView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PannablePickerView.podspec; path = ../PannablePickerView.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* PannablePickerView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PannablePickerView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -69,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		082E05281C2F451A00F90196 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				082E05291C2F453F00F90196 /* InsideTableViewViewController.swift */,
+				082E052B1C2F4B0600F90196 /* AsAnInputViewTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		11111B01E0971613C9565C98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,8 +124,8 @@
 		607FACD21AFB9204008FA782 /* Example for PannablePickerView */ = {
 			isa = PBXGroup;
 			children = (
+				082E05281C2F451A00F90196 /* ViewControllers */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -359,7 +370,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				082E052C1C2F4B0600F90196 /* AsAnInputViewTableViewController.swift in Sources */,
+				082E052A1C2F453F00F90196 /* InsideTableViewViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

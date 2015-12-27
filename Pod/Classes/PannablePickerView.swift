@@ -8,6 +8,11 @@
 
 import UIKit
 
+@objc public protocol PannablePickerViewDelegate{
+    optional func pannablePickerViewDidBeginPanning(sender:PannablePickerView)
+    optional func pannablePickerViewDidEndPanning(sender:PannablePickerView)
+}
+
 @IBDesignable public class PannablePickerView: UIControl {
     //MARK: - Properties
     //MARK: UI
@@ -26,13 +31,12 @@ import UIKit
             refreshLabel()
         }
     }
-    //Value
     @IBInspectable public var value:Double{
         get{
             if continuous{
-                return floor(privateValue)
-            }else{
                 return privateValue
+            }else{
+                return round(privateValue)
             }
         }
         set(newValue){
@@ -40,7 +44,7 @@ import UIKit
             if continuous{
                 correctedValue = newValue
             }else{
-                correctedValue = floor(newValue)
+                correctedValue = round(newValue)
             }
             privateValue = correctedValue
         }
@@ -100,6 +104,7 @@ import UIKit
             setCenterConstraints(view: valueLabel)
         }
     }
+    public var delegate:PannablePickerViewDelegate?
     //MARK: Private Variables
     //General
     private var panEnabled = false
@@ -217,11 +222,14 @@ import UIKit
             let y = point.y
             let initialY = initialPoint.y
             let newPosition = currentYPosition + (y - initialY)
-            if newPosition <= maxYPosition && newPosition >= minYPosition{
-                currentYPosition += (y - initialY)
+            if newPosition > maxYPosition{
+                currentYPosition = maxYPosition
+            }else if newPosition < minYPosition{
+                currentYPosition = minYPosition
+            }else{
+                currentYPosition = newPosition
                 touchBeganPoint = point
             }
-            
         }
     }
     
@@ -244,6 +252,7 @@ import UIKit
         }
         
         //
+        delegate?.pannablePickerViewDidBeginPanning?(self)
         refreshYPosition()
         UIView.animateWithDuration(duration(), animations: { () -> Void in
             let newScale = self.minLabelSize/self.maxLabelSize
@@ -251,6 +260,7 @@ import UIKit
             self.valueLabel.alpha = 0.9
             self.unitLabel.alpha = 0.0
             self.setValueLabelLeftAlignedConstraints(yPosition: self.currentYPosition)
+            self.valueParentView.layoutIfNeeded()
             }, completion: {(completed)-> () in
                 self.panEnabled = true
         })
@@ -266,12 +276,14 @@ import UIKit
         }
         
         //
+        delegate?.pannablePickerViewDidEndPanning?(self)
         panEnabled = false
         UIView.animateWithDuration(duration(), animations: { () -> Void in
             self.valueLabel.transform = CGAffineTransformMakeScale(1, 1)
             self.valueLabel.alpha = 1.0
             self.unitLabel.alpha = 1.0
             self.setValueLabelCenterConstraints()
+            self.valueParentView.layoutIfNeeded()
             }, completion: {(completed) -> () in
             UIView.animateWithDuration(0.2, animations: { () -> Void in
                 self.unitLabel.alpha = 1.0
@@ -328,7 +340,6 @@ import UIKit
         if let parentView = unitLabel.superview{
             parentView.removeConstraints(parentView.constraints)
             setCenterConstraints(view: unitLabel, yOffset: centerYOffset())
-            parentView.layoutIfNeeded()
         }
         
     }
@@ -347,7 +358,6 @@ import UIKit
         if let parentView = valueLabel.superview{
             parentView.removeConstraints(parentView.constraints)
             setCenterConstraints(view: valueLabel, yOffset: centerYOffset())
-            parentView.layoutIfNeeded()
         }
     }
     
@@ -372,19 +382,21 @@ import UIKit
             let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-y-[label]", options: [], metrics: metrics, views: views)
             parentView.addConstraints(hConstraints)
             parentView.addConstraints(vConstraints)
-            parentView.layoutIfNeeded()
         }
     }
     
     //MARK: Refreshing
     private func refreshLabel(){
         let valueFormat:String
+        let correctedValue:Double
         if continuous{
             valueFormat = "%0.2f"
+            correctedValue = privateValue
         }else{
             valueFormat = "%0.0f"
+            correctedValue = round(privateValue)
         }
-        let valueText = String(format: valueFormat, privateValue)
+        let valueText = String(format: valueFormat, correctedValue)
         valueLabel.text = "\(textPrefix)\(valueText)\(textSuffix)"
     }
     
