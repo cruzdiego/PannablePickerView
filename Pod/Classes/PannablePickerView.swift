@@ -211,9 +211,18 @@ import UIKit
     
     //MARK: - Touches events methods
     public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if let point = touches.first?.locationInView(contentView){
-            touchBeganPoint = point
-            goToCurrentValuePosition(animated: true)
+        func areMinMaxValuesValid()->Bool{
+            return minValue<maxValue
+        }
+        
+        //
+        if areMinMaxValuesValid(){
+            if let point = touches.first?.locationInView(contentView){
+                touchBeganPoint = point
+                goToCurrentValuePosition(animated: true)
+            }
+        }else{
+            NSLog("WARNING: PannablePickerView does not support a minValue equal or greater than maxValue")
         }
     }
     
