@@ -18,6 +18,7 @@ class AsAnInputViewTableViewController: UITableViewController, UITextFieldDelega
         let pickerView = PannablePickerView()
         pickerView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 200)
         pickerView.addTarget(self, action: "valueChanged:", forControlEvents: .ValueChanged)
+        pickerView.backgroundColor = UIColor(red: 0.180, green: 0.659, blue: 0.929, alpha: 1.00)
         pickerView.minValue = 2005
         pickerView.maxValue = 2015
         pickerView.value = 2015
