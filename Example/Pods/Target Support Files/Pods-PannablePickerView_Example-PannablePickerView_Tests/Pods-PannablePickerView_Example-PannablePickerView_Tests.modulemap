@@ -1,0 +1,6 @@
+framework module Pods_PannablePickerView_Example_PannablePickerView_Tests {
+  umbrella header "Pods-PannablePickerView_Example-PannablePickerView_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
