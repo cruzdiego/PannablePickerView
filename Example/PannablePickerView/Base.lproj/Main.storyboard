@@ -209,7 +209,7 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="continuous" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="valueChanged:" destination="sAn-F5-6w3" eventType="valueChanged" id="7mg-QU-uIE"/>
+                                                        <action selector="valueChangedWithSender:" destination="sAn-F5-6w3" eventType="valueChanged" id="dvI-lO-wqZ"/>
                                                     </connections>
                                                 </view>
                                             </subviews>
