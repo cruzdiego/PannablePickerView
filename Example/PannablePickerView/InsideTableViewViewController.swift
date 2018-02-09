@@ -11,11 +11,11 @@ import PannablePickerView
 
 class InsideTableViewViewController: UITableViewController {
     //MARK: - Properties
-    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel?
     
     //MARK: - Action methods
     @IBAction func valueChanged(sender: PannablePickerView) {
         let valueText = String(format: "%0.2f", sender.value)
-        amountLabel.text = "$\(valueText)"
+        amountLabel?.text = "$\(valueText)"
     }
 }

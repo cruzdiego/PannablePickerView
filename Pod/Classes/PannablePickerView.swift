@@ -8,27 +8,31 @@
 
 import UIKit
 
-@objc public protocol PannablePickerViewDelegate{
-    optional func pannablePickerViewDidBeginPanning(sender:PannablePickerView)
-    optional func pannablePickerViewDidEndPanning(sender:PannablePickerView)
+@objc public protocol PannablePickerViewDelegate: class{
+    @objc optional func pannablePickerViewDidBeginPanning(_ sender:PannablePickerView)
+    @objc optional func pannablePickerViewDidEndPanning(_ sender:PannablePickerView)
 }
 
 @IBDesignable public class PannablePickerView: UIControl {
     //MARK: - Properties
     //MARK: UI
-    //BG
-    private var bgView:UIView!
-    //Content
-    private var contentView:UIView!
-    private var valueParentView:UIView!
-    private var valueLabel: UILabel!
-    private var unitParentView:UIView!
-    private var unitLabel: UILabel!
-    //MARK: Public Variables
-    //Type
+    //*** General ***
+    private var bgView:UIView?
+    //***************
+    
+    //*** Content ***
+    private var contentView:UIView?
+    private var valueParentView:UIView?
+    private var valueLabel: UILabel?
+    private var unitParentView:UIView?
+    private var unitLabel: UILabel?
+    //***************
+    
+    //MARK: Other Properties
+    //*** Type ***
     @IBInspectable public var continuous:Bool = false{
         didSet{
-            refreshLabel()
+            didSetContinuous()
         }
     }
     @IBInspectable public var value:Double{
@@ -39,88 +43,78 @@ import UIKit
                 return round(privateValue)
             }
         }
-        set(newValue){
-            let correctedValue:Double
-            if continuous{
-                correctedValue = newValue
-            }else{
-                correctedValue = round(newValue)
-            }
-            privateValue = correctedValue
+        set{
+            privateValue = continuous ? newValue : round(newValue)
         }
     }
     @IBInspectable public var minValue:Double = 0{
         didSet{
-            if oldValue != minValue{
-                correctValueIfNeeded()
-            }
+            didSetMinValue(oldValue: oldValue)
         }
     }
     @IBInspectable public var maxValue:Double = 100{
         didSet{
-            if oldValue != maxValue{
-                correctValueIfNeeded()
-            }
+            didSetMaxValue(oldValue: oldValue)
         }
     }
-    //Label
+    //************
+    
+    //*** Label ***
     @IBInspectable public var minLabelSize:CGFloat = 30.0
     @IBInspectable public var maxLabelSize:CGFloat = 54.0{
         didSet{
-            valueLabel.font = UIFont.systemFontOfSize(maxLabelSize)
-            setUnitLabelCenterXConstraints()
+            didSetMaxLabelSize()
         }
     }
-    @IBInspectable public var textColor:UIColor = UIColor.whiteColor(){
+    @IBInspectable public var textColor:UIColor = UIColor.white{
         didSet{
-            valueLabel.textColor = textColor
+            didSetTextColor()
         }
     }
     @IBInspectable public var textPrefix:String = ""{
         didSet{
-            refreshLabel()
+            didSetTextPrefix()
         }
     }
-    @IBInspectable public var textSuffix:String = ""{
+    @IBInspectable open var textSuffix:String = ""{
         didSet{
-            refreshLabel()
+            didSetTextSuffix()
         }
     }
-    //Unit
-    @IBInspectable public var unit:String = ""{
+    //*************
+    
+    //*** Unit ***
+    @IBInspectable open var unit:String = ""{
         didSet{
-            refreshUnitLabel()
-            setValueLabelCenterConstraints()
+            didSetUnit()
         }
     }
-    @IBInspectable public var unitColor:UIColor = UIColor.whiteColor(){
+    @IBInspectable open var unitColor:UIColor = UIColor.white{
         didSet{
-            unitLabel.textColor = unitColor
+            didSetUnitColor()
         }
     }
-    @IBInspectable public var unitSize:CGFloat = 14.0{
+    @IBInspectable open var unitSize:CGFloat = 14.0{
         didSet{
-            unitLabel.font = UIFont.systemFontOfSize(unitSize, weight: UIFontWeightSemibold)
-            setCenterConstraints(view: valueLabel)
+            didSetUnitSize()
         }
     }
+    //*************
+    
     public var delegate:PannablePickerViewDelegate?
-    //MARK: Private Variables
+    
+    //MARK: Private Properties
     //General
     private var panEnabled = false
     //Value
     private var privateValue:Double = 0{
         didSet{
-            if oldValue != privateValue{
-                correctValueIfNeeded()
-                sendActionsForControlEvents(.ValueChanged)
-                refreshLabel()
-            }
+            didSetPrivateValue(oldValue: oldValue)
         }
     }
     //Transition
     private let transitionDuration:CFTimeInterval = 0.15
-    private var transitionAnimation: CABasicAnimation?
+    fileprivate var transitionAnimation: CABasicAnimation?
     //Unit
     private var unitVerticalSpacing:CGFloat = 8.0
     //yPosition
@@ -131,23 +125,26 @@ import UIKit
     }
     private var maxYPosition:CGFloat{
         get{
+            guard   let contentView = contentView,
+                let valueLabel = valueLabel else {
+                    return 0.0
+            }
+            
             return contentView.bounds.maxY - (valueLabel.bounds.height * minLabelSize/maxLabelSize)
         }
     }
     private var currentYPosition: CGFloat = 0{
         didSet{
-            if panEnabled{
-                setValueLabelLeftAlignedConstraints(yPosition: currentYPosition)
-                refreshValue()
-            }
+            didSetCurrentYPosition()
         }
     }
     //Touch
     private var touchBeganPoint:CGPoint?
     
-    //MARK: - Init methods
+    //MARK: - Public methods
+    //MARK: Init
     init(){
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         configure()
     }
     
@@ -161,63 +158,15 @@ import UIKit
         configure()
     }
     
-    //MARK: Configure
-    private func configure(){
-        func configureBGView(){
-            bgView = newUIView()
-            addAndSetFullSizeConstraints(view: bgView, parentView: self)
-        }
-        
-        func configureContentView(){
-            //ContentView
-            contentView = newUIView()
-            addAndSetFullSizeConstraints(view: contentView, parentView: self,padding: 16)
-        }
-        
-        func configureValueLabel(){
-            //Parent
-            valueParentView = newUIView()
-            addAndSetFullSizeConstraints(view: valueParentView, parentView: contentView)
-            //Value
-            valueLabel = UILabel(frame:CGRectZero)
-            valueLabel.translatesAutoresizingMaskIntoConstraints = false
-            valueLabel.font = UIFont.systemFontOfSize(maxLabelSize)
-            valueLabel.textColor = self.textColor
-            refreshLabel()
-            valueParentView.addSubview(valueLabel)
-            setValueLabelCenterConstraints()
-        }
-        
-        func configureUnitLabel(){
-            //Parent
-            unitParentView = newUIView()
-            addAndSetFullSizeConstraints(view: unitParentView, parentView: contentView)
-            //Unit
-            unitLabel = UILabel(frame: CGRectZero)
-            unitLabel.translatesAutoresizingMaskIntoConstraints = false
-            unitLabel.font = UIFont.systemFontOfSize(unitSize, weight: UIFontWeightSemibold)
-            unitLabel.textColor = self.unitColor
-            refreshUnitLabel()
-            unitParentView.addSubview(unitLabel)
-            setUnitLabelCenterXConstraints()
-        }
-        
-        //
-        configureBGView()
-        configureContentView()
-        configureValueLabel()
-        configureUnitLabel()
-    }
-    
-    //MARK: - Touches events methods
-    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    //MARK: Touches events
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         func areMinMaxValuesValid()->Bool{
             return minValue<maxValue
         }
         
         //
         if areMinMaxValuesValid(){
-            if let point = touches.first?.locationInView(contentView){
+            if let point = touches.first?.location(in: contentView){
                 touchBeganPoint = point
                 goToCurrentValuePosition(animated: true)
             }
@@ -226,8 +175,8 @@ import UIKit
         }
     }
     
-    public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if let initialPoint = touchBeganPoint, let point = touches.first?.locationInView(contentView) where panEnabled{
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let initialPoint = touchBeganPoint, let point = touches.first?.location(in: contentView), panEnabled{
             let y = point.y
             let initialY = initialPoint.y
             let newPosition = currentYPosition + (y - initialY)
@@ -242,16 +191,154 @@ import UIKit
         }
     }
     
-    public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         goToCenter(animated: true)
     }
     
-    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         touchBeganPoint = nil
-        goToCenter(animated:true)
+        goToCenter(animated: true)
     }
     
-    public func goToCurrentValuePosition(animated animated:Bool=false){
+    //MARK: - Private methods
+    //MARK: didSet
+    private func didSetContinuous() {
+        refreshLabel()
+    }
+    
+    private func didSetMinValue(oldValue: Double) {
+        if oldValue != minValue{
+            correctValueIfNeeded()
+        }
+    }
+    
+    private func didSetMaxValue(oldValue: Double) {
+        if oldValue != maxValue{
+            correctValueIfNeeded()
+        }
+    }
+    
+    private func didSetMaxLabelSize() {
+        valueLabel?.font = UIFont.systemFont(ofSize: maxLabelSize)
+        setUnitLabelCenterXConstraints()
+    }
+    
+    private func didSetTextColor() {
+        valueLabel?.textColor = textColor
+    }
+    
+    private func didSetTextPrefix() {
+        refreshLabel()
+    }
+    
+    private func didSetTextSuffix() {
+        refreshLabel()
+    }
+    
+    private func didSetUnit() {
+        refreshUnitLabel()
+        setValueLabelCenterConstraints()
+    }
+    
+    private func didSetUnitColor() {
+        unitLabel?.textColor = unitColor
+    }
+    
+    private func didSetUnitSize() {
+        unitLabel?.font = UIFont.systemFont(ofSize: unitSize, weight: UIFont.Weight.semibold)
+        if let valueLabel = valueLabel {
+            setCenterConstraints(valueLabel)
+        }
+    }
+    
+    private func didSetPrivateValue(oldValue: Double) {
+        if oldValue != privateValue{
+            correctValueIfNeeded()
+            sendActions(for: .valueChanged)
+            refreshLabel()
+        }
+    }
+    
+    private func didSetCurrentYPosition() {
+        if panEnabled{
+            setValueLabelLeftAlignedConstraints(currentYPosition)
+            refreshValue()
+        }
+    }
+    
+    //MARK: Configure
+    private func configure(){
+        func configureBGView(){
+            bgView = newUIView()
+            guard let bgView = bgView else {
+                return
+            }
+            
+            addAndSetFullSizeConstraints(bgView, parentView: self)
+        }
+        
+        func configureContentView(){
+            //ContentView
+            contentView = newUIView()
+            guard let contentView = contentView else {
+                return
+            }
+            
+            addAndSetFullSizeConstraints(contentView, parentView: self,padding: 16)
+        }
+        
+        func configureValueLabel(){
+            //Parent
+            valueParentView = newUIView()
+            guard   let contentView = contentView,
+                let valueParentView = valueParentView else {
+                    return
+            }
+            
+            addAndSetFullSizeConstraints(valueParentView, parentView: contentView)
+            
+            //Value
+            valueLabel = UILabel(frame:CGRect.zero)
+            if let valueLabel = valueLabel {
+                valueLabel.translatesAutoresizingMaskIntoConstraints = false
+                valueLabel.font = UIFont.systemFont(ofSize: maxLabelSize)
+                valueLabel.textColor = self.textColor
+                refreshLabel()
+                valueParentView.addSubview(valueLabel)
+                setValueLabelCenterConstraints()
+            }
+        }
+        
+        func configureUnitLabel(){
+            //Parent
+            unitParentView = newUIView()
+            guard   let contentView = contentView,
+                let unitParentView = unitParentView else {
+                    return
+            }
+            
+            addAndSetFullSizeConstraints(unitParentView, parentView: contentView)
+            //Unit
+            unitLabel = UILabel(frame: CGRect.zero)
+            if let unitLabel = unitLabel {
+                unitLabel.translatesAutoresizingMaskIntoConstraints = false
+                unitLabel.font = UIFont.systemFont(ofSize: unitSize, weight: UIFont.Weight.semibold)
+                unitLabel.textColor = self.unitColor
+                refreshUnitLabel()
+                unitParentView.addSubview(unitLabel)
+                setUnitLabelCenterXConstraints()
+            }
+        }
+        
+        //
+        configureBGView()
+        configureContentView()
+        configureValueLabel()
+        configureUnitLabel()
+    }
+    
+    //MARK: Util
+    private func goToCurrentValuePosition(animated:Bool=false){
         func duration()->CFTimeInterval{
             if animated{
                 return transitionDuration
@@ -263,19 +350,19 @@ import UIKit
         //
         delegate?.pannablePickerViewDidBeginPanning?(self)
         refreshYPosition()
-        UIView.animateWithDuration(duration(), animations: { () -> Void in
+        UIView.animate(withDuration: duration(), animations: { () -> Void in
             let newScale = self.minLabelSize/self.maxLabelSize
-            self.valueLabel.transform = CGAffineTransformMakeScale(newScale, newScale)
-            self.valueLabel.alpha = 0.9
-            self.unitLabel.alpha = 0.0
-            self.setValueLabelLeftAlignedConstraints(yPosition: self.currentYPosition)
-            self.valueParentView.layoutIfNeeded()
-            }, completion: {(completed)-> () in
-                self.panEnabled = true
+            self.valueLabel?.transform = CGAffineTransform(scaleX: newScale, y: newScale)
+            self.valueLabel?.alpha = 0.9
+            self.unitLabel?.alpha = 0.0
+            self.setValueLabelLeftAlignedConstraints(self.currentYPosition)
+            self.valueParentView?.layoutIfNeeded()
+        }, completion: {(completed)-> () in
+            self.panEnabled = true
         })
     }
     
-    public func goToCenter(animated animated:Bool=false){
+    private func goToCenter(animated:Bool=false){
         func duration()->CFTimeInterval{
             if animated{
                 return transitionDuration
@@ -287,74 +374,70 @@ import UIKit
         //
         delegate?.pannablePickerViewDidEndPanning?(self)
         panEnabled = false
-        UIView.animateWithDuration(duration(), animations: { () -> Void in
-            self.valueLabel.transform = CGAffineTransformMakeScale(1, 1)
-            self.valueLabel.alpha = 1.0
-            self.unitLabel.alpha = 1.0
+        UIView.animate(withDuration: duration(), animations: { () -> Void in
+            self.valueLabel?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.valueLabel?.alpha = 1.0
+            self.unitLabel?.alpha = 1.0
             self.setValueLabelCenterConstraints()
-            self.valueParentView.layoutIfNeeded()
-            }, completion: {(completed) -> () in
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                self.unitLabel.alpha = 1.0
+            self.valueParentView?.layoutIfNeeded()
+        }, completion: {(completed) -> () in
+            UIView.animate(withDuration: 0.2, animations: { () -> Void in
+                self.unitLabel?.alpha = 1.0
             })
-                
+            
         })
     }
     
-    
-    
-    //MARK: - Utility methods
-    //MARK: Creation
     private func newUIView()->UIView{
-        let newView = UIView(frame: CGRectZero)
+        let newView = UIView(frame: CGRect.zero)
         return newView
     }
     
     //MARK: NSLayoutConstraints
     //Add and Set
-    private func addAndSetFullSizeConstraints(view view:UIView,parentView:UIView, padding:CGFloat = 0){
+    fileprivate func addAndSetFullSizeConstraints(_ view:UIView,parentView:UIView, padding:CGFloat = 0){
         view.translatesAutoresizingMaskIntoConstraints = false
         parentView.addSubview(view)
         //
         let metrics = ["padding":padding]
         let views = ["subview":view]
-        let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-padding-[subview]-padding-|", options: [], metrics: metrics, views: views)
-        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-padding-[subview]-padding-|", options: [], metrics: metrics, views: views)
+        let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-padding-[subview]-padding-|", options: [], metrics: metrics, views: views)
+        let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-padding-[subview]-padding-|", options: [], metrics: metrics, views: views)
         parentView.addConstraints(hConstraints)
         parentView.addConstraints(vConstraints)
     }
     
-    private func addAndSetCenterConstraints(view view:UIView,parentView:UIView){
+    fileprivate func addAndSetCenterConstraints(_ view:UIView,parentView:UIView){
         view.translatesAutoresizingMaskIntoConstraints = false
         parentView.addSubview(view)
-        setCenterConstraints(view: view)
+        setCenterConstraints(view)
     }
     
     //Set
-    private func setCenterConstraints(view view:UIView,yOffset:CGFloat=0.0){
+    fileprivate func setCenterConstraints(_ view:UIView,yOffset:CGFloat=0.0){
         if let parentView = view.superview{
-            let centerXConstraint = NSLayoutConstraint(item: parentView, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0)
-            let centerYConstraint = NSLayoutConstraint(item: parentView, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: yOffset)
+            let centerXConstraint = NSLayoutConstraint(item: parentView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
+            let centerYConstraint = NSLayoutConstraint(item: parentView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: yOffset)
             parentView.addConstraints([centerXConstraint,centerYConstraint])
         }
     }
     
     //Set - Unit Label
-    private func setUnitLabelCenterXConstraints(){
+    fileprivate func setUnitLabelCenterXConstraints(){
         func centerYOffset()->CGFloat{
             return -1 * (maxLabelSize + unitVerticalSpacing)/2
         }
         
         //
-        if let parentView = unitLabel.superview{
+        if  let unitLabel = unitLabel,
+            let parentView = unitLabel.superview{
             parentView.removeConstraints(parentView.constraints)
-            setCenterConstraints(view: unitLabel, yOffset: centerYOffset())
+            setCenterConstraints(unitLabel, yOffset: centerYOffset())
         }
-        
     }
     
     //Set - Value Label
-    private func setValueLabelCenterConstraints(){
+    fileprivate func setValueLabelCenterConstraints(){
         func centerYOffset()->CGFloat{
             if unit == ""{
                 return 0.0
@@ -364,17 +447,22 @@ import UIKit
         }
         
         //
-        if let parentView = valueLabel.superview{
+        if  let valueLabel = valueLabel,
+            let parentView = valueLabel.superview{
             parentView.removeConstraints(parentView.constraints)
-            setCenterConstraints(view: valueLabel, yOffset: centerYOffset())
+            setCenterConstraints(valueLabel, yOffset: centerYOffset())
         }
     }
     
-    private func setValueLabelLeftAlignedConstraints(yPosition yPosition:CGFloat){
+    fileprivate func setValueLabelLeftAlignedConstraints(_ yPosition:CGFloat){
+        guard let valueLabel = valueLabel else {
+            return
+        }
+        
         func leading()->CGFloat{
             let newScale = self.minLabelSize/self.maxLabelSize
             let spaceScale = (1 - newScale)/2
-            return -1 * spaceScale * self.valueLabel.bounds.width
+            return -1 * spaceScale * valueLabel.bounds.width
         }
         
         func initialTop()->CGFloat{
@@ -387,15 +475,15 @@ import UIKit
             parentView.removeConstraints(parentView.constraints)
             let metrics = ["y":yPosition - initialTop(),"leading":leading()]
             let views = ["label":valueLabel]
-            let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-leading-[label]", options: [], metrics: metrics, views: views)
-            let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-y-[label]", options: [], metrics: metrics, views: views)
+            let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-leading-[label]", options: [], metrics: metrics, views: views)
+            let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-y-[label]", options: [], metrics: metrics, views: views)
             parentView.addConstraints(hConstraints)
             parentView.addConstraints(vConstraints)
         }
     }
     
     //MARK: Refreshing
-    private func refreshLabel(){
+    fileprivate func refreshLabel(){
         let valueFormat:String
         let correctedValue:Double
         if continuous{
@@ -406,46 +494,48 @@ import UIKit
             correctedValue = round(privateValue)
         }
         let valueText = String(format: valueFormat, correctedValue)
-        valueLabel.text = "\(textPrefix)\(valueText)\(textSuffix)"
+        valueLabel?.text = "\(textPrefix)\(valueText)\(textSuffix)"
     }
     
-    private func refreshUnitLabel(){
-        let correctedUnit = unit.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: " ")).uppercaseString
-        unitLabel.text = correctedUnit
+    fileprivate func refreshUnitLabel(){
+        let correctedUnit = unit.trimmingCharacters(in: CharacterSet(charactersIn: " ")).uppercased()
+        unitLabel?.text = correctedUnit
     }
     
-    private func refreshValue(){
+    fileprivate func refreshValue(){
         privateValue = Double(convertCGFloat(currentYPosition, min1: minYPosition, max1: maxYPosition, min2: CGFloat(minValue), max2: CGFloat(maxValue)))
     }
     
-    private func refreshYPosition(){
+    fileprivate func refreshYPosition(){
         currentYPosition = CGFloat(convertDouble(privateValue, min1: minValue, max1: maxValue, min2: Double(minYPosition), max2: Double(maxYPosition)))
     }
     
     //MARK: - Misc methods
-    private func convertDouble(value:Double,min1:Double,max1:Double,min2:Double,max2:Double)->Double{
+    fileprivate func convertDouble(_ value:Double,min1:Double,max1:Double,min2:Double,max2:Double)->Double{
         let range2 = max2 - min2
         let range1 = max1 - min1
         return (((value - min1) * range2) / range1) + min2
     }
     
-    private func convertCGFloat(value:CGFloat,min1:CGFloat,max1:CGFloat,min2:CGFloat,max2:CGFloat)->CGFloat{
+    fileprivate func convertCGFloat(_ value:CGFloat,min1:CGFloat,max1:CGFloat,min2:CGFloat,max2:CGFloat)->CGFloat{
         let range2 = max2 - min2
         let range1 = max1 - min1
         return (((value - min1) * range2) / range1) + min2
     }
     
-    private func correctValueIfNeeded(){
+    fileprivate func correctValueIfNeeded(){
         privateValue = min(maxValue,max(minValue,privateValue))
     }
     
-    public override func intrinsicContentSize() -> CGSize {
-        return CGSizeMake(superview?.bounds.width ?? 320.0, 200)
+    open override var intrinsicContentSize : CGSize {
+        return CGSize(width: superview?.bounds.width ?? 320.0, height: 200)
     }
 }
 
-extension PannablePickerView{
-    public override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+//MARK: - Delegate methods
+//MARK: CAAnimationDelegate
+extension PannablePickerView: CAAnimationDelegate{
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag{
             transitionAnimation = nil
         }

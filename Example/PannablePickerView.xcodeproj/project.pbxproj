@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		082E052A1C2F453F00F90196 /* InsideTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082E05291C2F453F00F90196 /* InsideTableViewViewController.swift */; };
 		082E052C1C2F4B0600F90196 /* AsAnInputViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082E052B1C2F4B0600F90196 /* AsAnInputViewTableViewController.swift */; };
+		2791419AB4BC68B1C702D601 /* Pods_PannablePickerView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B570E89E9D75FE5A8A5AE1A /* Pods_PannablePickerView_Example.framework */; };
+		320E72726AC4FDD2247E7171 /* Pods_PannablePickerView_Example_PannablePickerView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7812B081E3D8D0895E00733 /* Pods_PannablePickerView_Example_PannablePickerView_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		9308EAF570E9ED1F51F3B1C9 /* Pods_PannablePickerView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E4DE00F7B3A5FD3EDF5153 /* Pods_PannablePickerView_Example.framework */; };
-		A223A789FC32EC8F0D49BCCA /* Pods_PannablePickerView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68BBF2C60E4AF289204E138 /* Pods_PannablePickerView_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +30,7 @@
 /* Begin PBXFileReference section */
 		082E05291C2F453F00F90196 /* InsideTableViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideTableViewViewController.swift; sourceTree = "<group>"; };
 		082E052B1C2F4B0600F90196 /* AsAnInputViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsAnInputViewTableViewController.swift; sourceTree = "<group>"; };
-		3998A39FBF705C014825D0E6 /* Pods-PannablePickerView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PannablePickerView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PannablePickerView_Tests/Pods-PannablePickerView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		3380BD3C609821E6775AFD3A /* Pods-PannablePickerView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PannablePickerView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PannablePickerView_Example/Pods-PannablePickerView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		41FE6AC4060599578B476C7E /* PannablePickerView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PannablePickerView.podspec; path = ../PannablePickerView.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* PannablePickerView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PannablePickerView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,13 +40,12 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* PannablePickerView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PannablePickerView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		7766068053DC84D3B8ADB10E /* Pods-PannablePickerView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PannablePickerView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PannablePickerView_Example/Pods-PannablePickerView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		78635416D36D283B04BDB493 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		990DAD700264B9FC23057141 /* Pods-PannablePickerView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PannablePickerView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PannablePickerView_Tests/Pods-PannablePickerView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		99ACAB3EA51C2BF876853A7A /* Pods-PannablePickerView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PannablePickerView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PannablePickerView_Example/Pods-PannablePickerView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C4E4DE00F7B3A5FD3EDF5153 /* Pods_PannablePickerView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PannablePickerView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F68BBF2C60E4AF289204E138 /* Pods_PannablePickerView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PannablePickerView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B570E89E9D75FE5A8A5AE1A /* Pods_PannablePickerView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PannablePickerView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9E117799A987FFBC2E2B41D /* Pods-PannablePickerView_Example-PannablePickerView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PannablePickerView_Example-PannablePickerView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PannablePickerView_Example-PannablePickerView_Tests/Pods-PannablePickerView_Example-PannablePickerView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		E7812B081E3D8D0895E00733 /* Pods_PannablePickerView_Example_PannablePickerView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PannablePickerView_Example_PannablePickerView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EECD172AFBB4E834CEE8C89E /* Pods-PannablePickerView_Example-PannablePickerView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PannablePickerView_Example-PannablePickerView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PannablePickerView_Example-PannablePickerView_Tests/Pods-PannablePickerView_Example-PannablePickerView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F870C5539AFED5D6F3AA23D0 /* Pods-PannablePickerView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PannablePickerView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PannablePickerView_Example/Pods-PannablePickerView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FAAF8BD45DB1AD8EAB89C2EA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9308EAF570E9ED1F51F3B1C9 /* Pods_PannablePickerView_Example.framework in Frameworks */,
+				2791419AB4BC68B1C702D601 /* Pods_PannablePickerView_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A223A789FC32EC8F0D49BCCA /* Pods_PannablePickerView_Tests.framework in Frameworks */,
+				320E72726AC4FDD2247E7171 /* Pods_PannablePickerView_Example_PannablePickerView_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,24 +78,13 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		11111B01E0971613C9565C98 /* Frameworks */ = {
+		39503E03E5F67F5DB9424AB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C4E4DE00F7B3A5FD3EDF5153 /* Pods_PannablePickerView_Example.framework */,
-				F68BBF2C60E4AF289204E138 /* Pods_PannablePickerView_Tests.framework */,
+				9B570E89E9D75FE5A8A5AE1A /* Pods_PannablePickerView_Example.framework */,
+				E7812B081E3D8D0895E00733 /* Pods_PannablePickerView_Example_PannablePickerView_Tests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		13CCBE904A7F23D9CF0065E3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7766068053DC84D3B8ADB10E /* Pods-PannablePickerView_Example.debug.xcconfig */,
-				99ACAB3EA51C2BF876853A7A /* Pods-PannablePickerView_Example.release.xcconfig */,
-				990DAD700264B9FC23057141 /* Pods-PannablePickerView_Tests.debug.xcconfig */,
-				3998A39FBF705C014825D0E6 /* Pods-PannablePickerView_Tests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -107,8 +94,8 @@
 				607FACD21AFB9204008FA782 /* Example for PannablePickerView */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				13CCBE904A7F23D9CF0065E3 /* Pods */,
-				11111B01E0971613C9565C98 /* Frameworks */,
+				E4F8CB0E79CEF8BA35EC012A /* Pods */,
+				39503E03E5F67F5DB9424AB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,7 +133,6 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -170,6 +156,17 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		E4F8CB0E79CEF8BA35EC012A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3380BD3C609821E6775AFD3A /* Pods-PannablePickerView_Example.debug.xcconfig */,
+				F870C5539AFED5D6F3AA23D0 /* Pods-PannablePickerView_Example.release.xcconfig */,
+				A9E117799A987FFBC2E2B41D /* Pods-PannablePickerView_Example-PannablePickerView_Tests.debug.xcconfig */,
+				EECD172AFBB4E834CEE8C89E /* Pods-PannablePickerView_Example-PannablePickerView_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,12 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "PannablePickerView_Example" */;
 			buildPhases = (
-				FD4DE73535E1D3783FA64468 /* Check Pods Manifest.lock */,
+				C0C5D1EBEE182291A16E64A7 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				80876E317186784A4E27442B /* Embed Pods Frameworks */,
-				29ABFDA64E1123714C1B3841 /* Copy Pods Resources */,
+				86D0C800A75F902BA9431062 /* [CP] Embed Pods Frameworks */,
+				AE3B91B0A267C12D2A76B4D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,12 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "PannablePickerView_Tests" */;
 			buildPhases = (
-				6FCFCE5BD3FA3C4000A3310D /* Check Pods Manifest.lock */,
+				2CD8FED61D4EA1627BEDC356 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				9936C6D0653DE56321BD8305 /* Embed Pods Frameworks */,
-				B3745DD7F6EA923FCEE5DC10 /* Copy Pods Resources */,
+				B61D760574A29F337E015D79 /* [CP] Embed Pods Frameworks */,
+				100236173EA9521859E159E7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,14 +270,65 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		29ABFDA64E1123714C1B3841 /* Copy Pods Resources */ = {
+		100236173EA9521859E159E7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PannablePickerView_Example-PannablePickerView_Tests/Pods-PannablePickerView_Example-PannablePickerView_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2CD8FED61D4EA1627BEDC356 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PannablePickerView_Example-PannablePickerView_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86D0C800A75F902BA9431062 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PannablePickerView_Example/Pods-PannablePickerView_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PannablePickerView/PannablePickerView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PannablePickerView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PannablePickerView_Example/Pods-PannablePickerView_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE3B91B0A267C12D2A76B4D5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,79 +336,40 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PannablePickerView_Example/Pods-PannablePickerView_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6FCFCE5BD3FA3C4000A3310D /* Check Pods Manifest.lock */ = {
+		B61D760574A29F337E015D79 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PannablePickerView_Example-PannablePickerView_Tests/Pods-PannablePickerView_Example-PannablePickerView_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PannablePickerView/PannablePickerView.framework",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PannablePickerView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PannablePickerView_Example-PannablePickerView_Tests/Pods-PannablePickerView_Example-PannablePickerView_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		80876E317186784A4E27442B /* Embed Pods Frameworks */ = {
+		C0C5D1EBEE182291A16E64A7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PannablePickerView_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PannablePickerView_Example/Pods-PannablePickerView_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9936C6D0653DE56321BD8305 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PannablePickerView_Tests/Pods-PannablePickerView_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B3745DD7F6EA923FCEE5DC10 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PannablePickerView_Tests/Pods-PannablePickerView_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FD4DE73535E1D3783FA64468 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -380,7 +389,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,31 +505,35 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7766068053DC84D3B8ADB10E /* Pods-PannablePickerView_Example.debug.xcconfig */;
+			baseConfigurationReference = 3380BD3C609821E6775AFD3A /* Pods-PannablePickerView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PannablePickerView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99ACAB3EA51C2BF876853A7A /* Pods-PannablePickerView_Example.release.xcconfig */;
+			baseConfigurationReference = F870C5539AFED5D6F3AA23D0 /* Pods-PannablePickerView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PannablePickerView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 990DAD700264B9FC23057141 /* Pods-PannablePickerView_Tests.debug.xcconfig */;
+			baseConfigurationReference = A9E117799A987FFBC2E2B41D /* Pods-PannablePickerView_Example-PannablePickerView_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -535,13 +547,14 @@
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PannablePickerView_Example.app/PannablePickerView_Example";
 			};
 			name = Debug;
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3998A39FBF705C014825D0E6 /* Pods-PannablePickerView_Tests.release.xcconfig */;
+			baseConfigurationReference = EECD172AFBB4E834CEE8C89E /* Pods-PannablePickerView_Example-PannablePickerView_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -551,6 +564,7 @@
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PannablePickerView_Example.app/PannablePickerView_Example";
 			};
 			name = Release;

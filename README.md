@@ -12,6 +12,10 @@ Built as a better way of handling value selection from a finite range (than UISl
 
 Customizable, you can change sizes, colors, units, prefix/suffix and more.
 
+## What's new on 2.0:
+- Swif 4.0 support
+
+
 ## Installation
 
 - Via [CocoaPods](http://cocoapods.org):
@@ -25,7 +29,7 @@ pod "PannablePickerView"
 1. Clone this repo or download it as a .zip file
 2. Drag and drop PannablePickerView.swift to your project
 
-##Usage
+## Usage
 
 - From Storyboard:
 
@@ -38,7 +42,7 @@ pod "PannablePickerView"
 2. You can either asign a frame to it or create NSLayoutConstraints.
 3. Add a selector for its .ValueChanged control event.
 
-##Properties
+## Properties
 
 Thanks to @IBInspectables, you can customize its properties right on Storyboard:
 
@@ -118,7 +122,7 @@ Text color for unit. Default is white
 
 Font size for unit. Default is 14
 
-##Delegate methods
+## Delegate methods
 
 ```swift
 optional func pannablePickerViewDidBeginPanning(sender:PannablePickerView)
@@ -132,11 +136,10 @@ optional func pannablePickerViewDidEndPanning(sender:PannablePickerView)
 
 Triggered when users has ended interacting with the control
 
-##Requirements
+## Requirements
 
-- iOS 8.2 or later
-- Xcode 7.1 or later (Uses Swift 2.1 syntax)
-- Autolayout should be enabled on Storyboard
+- iOS 9.0 or later
+- Xcode 9.0 or later (Uses Swift 4.0 syntax)
 
 ## Author
 
