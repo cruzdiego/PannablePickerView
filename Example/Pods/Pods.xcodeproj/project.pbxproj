@@ -54,7 +54,7 @@
 		1F8E00B714086E5210478E5F5366A517 /* Pods-PannablePickerView_Example-PannablePickerView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PannablePickerView_Example-PannablePickerView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2DDF0C40EB2A13208CF25C00D37D8A39 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E41A65B1680EAADACC79DA52D728A54 /* ResourceBundle-PannablePickerView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-PannablePickerView-Info.plist"; sourceTree = "<group>"; };
-		2EDC1499E727EDF63CAB9D89FBCDD57C /* Pods_PannablePickerView_Example_PannablePickerView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PannablePickerView_Example_PannablePickerView_Tests.framework; path = "Pods-PannablePickerView_Example-PannablePickerView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EDC1499E727EDF63CAB9D89FBCDD57C /* Pods_PannablePickerView_Example_PannablePickerView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PannablePickerView_Example_PannablePickerView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		327E3DEA57EDB6F1F89115505180F74F /* Pods-PannablePickerView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PannablePickerView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		337FE4BA9F25224EC03E055071CC6575 /* PannablePickerView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PannablePickerView-dummy.m"; sourceTree = "<group>"; };
 		3C9B7F9B3F8D509E3687114173A0A4E9 /* Pods-PannablePickerView_Example-PannablePickerView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PannablePickerView_Example-PannablePickerView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -63,24 +63,24 @@
 		51EE3972B493E5A03BCF2CD9D5B78C1E /* Pods-PannablePickerView_Example-PannablePickerView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PannablePickerView_Example-PannablePickerView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		5651CB0C2CB14C11CD95FD792F27B146 /* IBInspectables.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = IBInspectables.png; path = Pod/Assets/IBInspectables.png; sourceTree = "<group>"; };
 		5C046E2F6A3FC6EBB1EBE4468ABF05FA /* PannablePickerView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PannablePickerView.xcconfig; sourceTree = "<group>"; };
-		74C1D82CF6F4FE3FE41CA393A7DCEAB8 /* PannablePickerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PannablePickerView.framework; path = PannablePickerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74C1D82CF6F4FE3FE41CA393A7DCEAB8 /* PannablePickerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PannablePickerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79516765931E2D9D12F593ABB971EFD6 /* Pods-PannablePickerView_Example-PannablePickerView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PannablePickerView_Example-PannablePickerView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		7E69331201D826CD72FCF295E30C710D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84FEB99533495031FE0798017E67AE1A /* Pods-PannablePickerView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PannablePickerView_Example-resources.sh"; sourceTree = "<group>"; };
 		8F931EB73A383100DD253448304F3B4D /* PannablePickerView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PannablePickerView-umbrella.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98A2EE9CAC939C843A7D89A7FE011121 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B4A15FE9A389028E7AB05ED5E3B3626 /* Pods-PannablePickerView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-PannablePickerView_Example.modulemap"; sourceTree = "<group>"; };
-		B2E0B3054949746E55627CCFF730FE67 /* PannablePickerView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PannablePickerView.bundle; path = PannablePickerView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B4A15FE9A389028E7AB05ED5E3B3626 /* Pods-PannablePickerView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PannablePickerView_Example.modulemap"; sourceTree = "<group>"; };
+		B2E0B3054949746E55627CCFF730FE67 /* PannablePickerView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PannablePickerView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D535722AEED4B0F209BAAC14BBEC5C /* Pods-PannablePickerView_Example-PannablePickerView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PannablePickerView_Example-PannablePickerView_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		BC2801AB8E1499825EA5A4AE1E964FD5 /* Pods-PannablePickerView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PannablePickerView_Example-frameworks.sh"; sourceTree = "<group>"; };
-		C6A3A27B602942E8BCCC4B61503E7932 /* PannablePickerView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PannablePickerView.modulemap; sourceTree = "<group>"; };
-		C720431710DAAE5115348794EBC7A218 /* Pods-PannablePickerView_Example-PannablePickerView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-PannablePickerView_Example-PannablePickerView_Tests.modulemap"; sourceTree = "<group>"; };
+		C6A3A27B602942E8BCCC4B61503E7932 /* PannablePickerView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PannablePickerView.modulemap; sourceTree = "<group>"; };
+		C720431710DAAE5115348794EBC7A218 /* Pods-PannablePickerView_Example-PannablePickerView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PannablePickerView_Example-PannablePickerView_Tests.modulemap"; sourceTree = "<group>"; };
 		D3E3BF89B9AD764CCF888D986F408E0F /* Pods-PannablePickerView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PannablePickerView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D7D2CA825479B66ADFCE5B36388E6B18 /* PannablePickerView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PannablePickerView-prefix.pch"; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DB30E8342DF652DBB72223541FD2783E /* Pods_PannablePickerView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PannablePickerView_Example.framework; path = "Pods-PannablePickerView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB30E8342DF652DBB72223541FD2783E /* Pods_PannablePickerView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PannablePickerView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8F93F928FE69A3DAAF4118FE3F7362 /* Pods-PannablePickerView_Example-PannablePickerView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PannablePickerView_Example-PannablePickerView_Tests-dummy.m"; sourceTree = "<group>"; };
 		F67F30FDE30C7C19D555506E55F93E17 /* Pods-PannablePickerView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PannablePickerView_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -745,6 +745,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -776,6 +777,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
